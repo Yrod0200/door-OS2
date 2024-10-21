@@ -2,7 +2,6 @@ local fs = require("filesystem")
 local cp = require("component")
 local c = require("computer")
 local e = require("event")
-w, h = gpu.getResolution()
 
 
 
@@ -27,14 +26,16 @@ end
 
 function get_date()
     uptime = c.uptime() 
+    local w, h = gpu.getResolution()
     free_mem = "  FREE RAM: " .. tostring(c.freeMemory()) 
     msg = uptime .. free_mem
     gpu.setForeground(0xFFFFFF)
     gpu.set(w/2 - -#msg, 5, msg)
 end
 function door_os_name()
+    local w, h = gpu.getResolution()
       gpu.setForeground(0xFFFFFF)
-      gpu.set(w -2 , h - 2, D-OS/2)
+      gpu.set(w -2 , h - 2, "D-OS/2")
 end
 
 function render()
@@ -60,6 +61,7 @@ function events()
 while true do
     os.sleep(0.0001)
     g_d_add.resume()
+    coroutine.yield()
 end
 end
 cls_t = coroutine.create(cls)
