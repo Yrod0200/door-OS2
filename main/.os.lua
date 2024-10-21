@@ -1,7 +1,7 @@
 local fs = require("filesystem")
 local cp = require("component")
 local c = require("computer")
-local e = require("events")
+local e = require("event")
 w, h = c.getResolution()
 
 function have_gpu()
