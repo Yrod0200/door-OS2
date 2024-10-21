@@ -54,7 +54,7 @@ end
 
 function events()
     while true do
-        local evname, _, xx, yy = event.pull(0.1)
+        local evname, _, xx, yy = event.pull()
         if evname == "touch" then
             print("TOUCHED!")
             if xx and yy then
