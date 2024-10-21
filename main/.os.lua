@@ -56,13 +56,14 @@ function event_touch()
         local msg = "TOUCHED: " .. tostring(x) .. ", " .. tostring(y)
         set_text(0, 10, msg)
     else 
-        return
+        coroutine.yield()
     end
 end
 
 function events()
+    e_t_c = coroutine.create(event_touch)
     while true do
-        event_touch()
+        coroutine.resume(e_t_c)
         coroutine.yield()
     end
 end
