@@ -50,12 +50,11 @@ end
 function events()
     while true do
         local event_type, arg1, arg2, arg3, arg4 = computer.pullSignal(0.1)
-        
         if event_type == "component_added" then
             gpu.setForeground(0xFFFFFF)
             local msg = "Device " .. type .. " connected."
             gpu.set(w / 2 - #msg, 17, msg)
-        
+        end
         coroutine.yield()
     end
 end
