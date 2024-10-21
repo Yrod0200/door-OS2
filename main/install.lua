@@ -34,6 +34,8 @@ function cls()
   gpu.fill(1, 1, w, h, " ")
 end
 function set_text(x, y, text)
+  local w, _ = gpu.getResolution()
+  local x = math.floor((w - #text) / 2)
   gpu.setForeground(0xFFFFFF)
   gpu.set(x , y, text)
 end
