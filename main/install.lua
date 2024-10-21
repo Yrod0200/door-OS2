@@ -26,14 +26,15 @@ function install()
   
   filesystem.makeDirectory("/usr/dos2")
   filesystem.makeDirectory("/usr/dos2/passwd")
-  set_text(0, 10, "Select password...")
+  set_text(0, 10, "Select an password. (Is not encrypted.)")
   password = io.read()
-  passwd = io.open("/usr/dos2/passwd/default.txt", "w")
+  passwd = io.open("/usr/dos2/passwd/.default.txt", "w")
   if passwd then
     passwd:write(password)
     passwd:close()
     cls()
-    set_text(0, 15, "Your system was installed sucessfully.")
+    set_text(0, 15, "Your system was installed sucessfully!")
+    set_text(0, 16, "You can now reboot to the new OS.")
   end
 end
 
@@ -58,16 +59,19 @@ gpu.setViewport(50, 25)
 
 cls()
 set_text(2, 5, "Welcome to D-OS/2 installer!")
-set_text(2, 7, "Would you like to install D-OS/2 on some OPEN-OS HD? [Y/n]")
+set_text(1, 7, "Would you like to install D-OS/2?")
+set_text(1, 8, "[Y/n]. You need to have OpenOS.")
 
 local read = io.read()
 if ( read == "Y" or read == "y" ) then
   cls()
   set_text(0, 5, "Requirements")
-  set_text(0, 6, "2x Tier 2 Memory or more")
-  set_text(0, 7, "2x Tier 3 Screen")
-  set_text(0, 8 ,"Minimum os knowledge" )
-  set_text(0, 9, "Have sure? [Y/n]" )
+  set_text(0, 6, "2x Tier 2 Memory (recomended for better performance)")
+  set_text(0, 7, "Tier 3 Screen (Because of resolution.)")
+  set_text(0, 8, "Tier 3 Graphics Card (I Dont tested with Tier 2)")
+  set_text(0, 9, "Internet Card (For installing extra.)")
+  set_text(0, 10, "Minimum terminal knowledge")
+  set_text(0, 12, "Have sure? [Y/n]" )
   local read = io.read()
   if ( read == "Y" or read == "y" ) then
     install()

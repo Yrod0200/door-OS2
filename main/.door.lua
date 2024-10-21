@@ -17,7 +17,7 @@ if cp.isAvailable("gpu") then
   gpu.setForeground(0xFFFFFF, false)  
   ww, hh = gpu.getViewport()
   gpu.set(18, 5, "D-OS/2")
-  gpu.set(2, 6, "Ctrl + Alt + C to get into the Terminal.")
+  gpu.set(2, 6, "Ctrl + Alt + C to get into the terminal.")
   gpu.set(19,15, "LOGIN: ")
   
   function read()
@@ -36,7 +36,7 @@ if cp.isAvailable("gpu") then
    end
      
   chunk =  read()
-  file = io.open("/usr/dos2/passwd/default.txt", "r")
+  file = io.open("/usr/dos2/passwd/.default.txt", "r")
   passwd = file:read()
   file:close()
   if chunk == passwd then
