@@ -8,7 +8,7 @@ if cp.isAvailable("gpu") then
   gpu = cp.gpu
 
   
-  gpu.setViewport(75, 50)
+  gpu.setViewport(75, 25)
 
   w, h = gpu.getResolution()
   gpu.setBackground(0x0000FF, false)
@@ -35,7 +35,10 @@ if cp.isAvailable("gpu") then
    end
      
   chunk =  read()
-  if chunk == "123" then
+  file = io.open("/usr/do2/passwd/default.txt", "r")
+  passwd = file.read()
+  file.close()
+  if chunk == passwd then
     shell.execute("lua /home/.os.lua")
   else
     gpu.set(19, 17, "Incorrect!")

@@ -1,9 +1,7 @@
 shell = require("shell")
 c = require("component")
 
-print("What is the floppy directory 3 starting ID chars? (USE THE /xxx/ FORMAT!) example: /b09/")
-dir = io.read()
-full_dir = "/mnt" .. dir
+full_dir = "/tmp/"
 
 login_dir = full_dir .. ".door.lua"
 os_dir = full_dir .. ".os.lua"

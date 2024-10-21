@@ -1,8 +1,9 @@
 cp = require("component")
 c = require("computer")
+filesystem = require("filesystem")
 local gpu
 
-function install(dir)
+function install()
   shell = require("shell")
   f = require("filesystem")
     if f.exists("/home/.door.lua") == true then
@@ -16,9 +17,17 @@ function install(dir)
     end
 
 
-  shell.execute("copy /mnt" .. dir .. ".door.lua /home/.door.lua")
-  shell.execute("copy /mnt".. dir ..".gautorun.lua /boot/95_door.lua")
-  shell.execute("copy /mnt".. dir ..".os.lua /home/.os.lua")
+  shell.execute("copy /tmp/.door.lua /home/.door.lua")
+  shell.execute("copy /tmp/./gautorun.lua /boot/95_door.lua")
+  shell.execute("copy /tmp/.os.lua /home/.os.lua")
+  filesystem.makeDirectory("/usr/dos2")
+  filesystem.makeDirectory("/usr/dos2/passwd")
+  shell.execute(">> /usr/do2/passwd/default.txt")
+  passwd = io.open("/usr/do2/passwd/default.txt", "w")
+  passwd.write("123")
+  passwd.close()
+  print("Installed!")
+  shell.execute("reboot")
 end
 
 
@@ -44,19 +53,18 @@ cls()
 set_text(2, 5, "Welcome to D-OS/2 installer!")
 set_text(2, 7, "Would you like to install D-OS/2 on some OPEN-OS HD? [Y/n]")
 
-read = io.read()
+local read = io.read()
 if ( read == "Y" or read == "y" ) then
   cls()
-  set_text(0, 5, "Select Disk then type the first three leters.")
-    i = 8
-  for addr in cp.list("filesys") do
-    set_text(0, i, addr)
-    i = i + 3
+  set_text(0, 5, "Requirements")
+  set_text(0, 6, "2x Tier 2 Memory or more")
+  set_text(0, 7, "2x Tier 3 Screen")
+  set_text(0, 8 ,"Minimum os knowledge" )
+  set_text(0, 9, "Have sure? [Y/n]" )
+  local read = io.read()
+  if ( read == "Y" or read == "y" ) then
+    install()
   end
-  set_text(0, 23, "Select the filesystem to install. example:b09")
-  local dir = io.read()
-  dir = "/" .. dir .. "/"
-  install(dir)
 else
   os.exit(-1) 
 end
