@@ -10,8 +10,8 @@ local current_screen = nil
 
 local guis = {
     ["gui_click"] = {
-        ["fill"] = " ",
-        ["bg_color"] = 0x00FF00,
+        ["fill"] = "X",
+        ["bg_color"] = 0xFF0000,
         ["fg_color"] = 0x0000FF,
         text = {
             ["Title"] = {
@@ -55,7 +55,7 @@ function cls()
         gpu.setBackground(guis[current_screen]["bg_color"])
         gpu.setForeground(guis[current_screen]["fg_color"])
         gpu.fill(1, 1, w, h, guis[current_screen]["fill"])
-        for key, text in pairs(guis[gcurrent_screen]["text"]) do
+        for key, text in pairs(guis[current_screen]["text"]) do
             gpu.set(text["PosX"], text["PosY"], text["Text"])
         end
     end
@@ -91,7 +91,7 @@ function touch_ev()
     if xx and yy then
         local msg = "."
         set_text(xx, yy, msg)
-        if xx < 5 and xx > 1 and yy < 3 and yy > 1 then
+        if xx < 10 and xx > 1 and yy < 5 and yy > 1 then
             current_screen = "gui_click"
             cls() 
         end
