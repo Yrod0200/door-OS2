@@ -58,7 +58,7 @@ end
 gpu.setViewport(50, 25)
 
 cls()
-set_text(2, 5, "Welcome to D-OS/2 installer!")
+set_text(2, 5, "Welcome to D-OS/2 installer! (V-0.0.1-alpha)")
 set_text(1, 7, "Would you like to install D-OS/2?")
 set_text(1, 8, "[Y/n]. You need to have OpenOS.")
 
@@ -66,7 +66,7 @@ local read = io.read()
 if ( read == "Y" or read == "y" ) then
   cls()
   set_text(0, 5, "Requirements")
-  set_text(0, 6, "2x Tier 2 Memory (recomended for better performance)")
+  set_text(0, 6, "2x Tier 2 Memory (recomended for better OS.)")
   set_text(0, 7, "Tier 3 Screen (Because of resolution.)")
   set_text(0, 8, "Tier 3 Graphics Card (I Dont tested with Tier 2)")
   set_text(0, 9, "Internet Card (For installing extra.)")

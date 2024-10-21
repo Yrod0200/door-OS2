@@ -32,7 +32,7 @@ end
 
 function get_date()
     local uptime = math.floor(c.uptime())
-    local msg = tostring(msg)
+    local msg = tostring(uptime)
     gpu.setForeground(0xFFFFFF)
     gpu.set(15 , 3, msg)
 end
@@ -55,8 +55,8 @@ function event_touch()
     local evname, _, x, y = event.pull(0.1, "touch")
     if x and y then
         local msg = "TOUCHED: " .. tostring(x) .. ", " .. tostring(y)
+        set_text(0, 10, msg)
     end
-    set_text(0, 10, msg)
 end
 
 function events()
