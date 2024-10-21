@@ -34,7 +34,6 @@ end
 
 function get_date()
     local uptime = math.floor(c.uptime())
-    local uptime = tostring(uptime) .. " " .. tostring(x) .. " " .. tostring(y)
     gpu.setForeground(0xFFFFFF)
     gpu.set(5 , 2, uptime)
 end
@@ -55,10 +54,10 @@ end
 
 function event_touch()
     while true do
-        local evname, _, xx, yy = event.pull(0.1)
+        local evname, _, x, y = event.pull(0.1)
         if evname == "touch" then
-            x = xx
-            y = yy
+            local msg = "TOUCHED: " .. tostring(x) .. ", " .. tostring(y)
+            set_text(0, 10, msg)
         end
             coroutine.yield()
     end
