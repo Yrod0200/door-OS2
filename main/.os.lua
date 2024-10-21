@@ -80,7 +80,7 @@ local main_t = coroutine.create(main_app)
 
 function main()
     while true do
-        coroutine.resume(main_app)
+        coroutine.resume(main_t)
     end
 end
 
