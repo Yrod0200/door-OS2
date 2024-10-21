@@ -36,7 +36,7 @@ if cp.isAvailable("gpu") then
    end
      
   chunk =  read()
-  file = fs.open("/usr/do2/passwd/default.txt", "r")
+  file = fs.open("/usr/dos2/passwd/default.txt", "r")
   passwd = file.read()
   file.close()
   if chunk == passwd then
