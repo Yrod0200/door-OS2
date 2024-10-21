@@ -36,7 +36,7 @@ function install()
     passwd:close()
     cls()
     set_text(1, 10, "Your system was installed sucessfully!")
-    set_text(1, 10, "You can now reboot to the new OS.")
+    set_text(1, 11, "You can now reboot to the new OS.")
   end
 end
 
