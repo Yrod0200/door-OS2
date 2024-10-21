@@ -44,6 +44,7 @@ end
 function render()
     while true do
         cls()
+        print("Rendering...")
         get_date()
         door_os_name()
         coroutine.yield()
@@ -52,12 +53,11 @@ end
 
 function event_touch()
     print("Starting Touch!")
-    local evname, _, x, y = event.pull(0.1)
-    if evname == "touch" then
-        local msg = "TOUCHED: " .. tostring(x) .. ", " .. tostring(y)
-        set_text(0, 10, msg)
-    end
-    print("Ending Touch!")
+    local evname, _, x, y = event.pull(0.1, "touch")
+    local msg = "TOUCHED: " .. tostring(x) .. ", " .. tostring(y)
+    set_text(0, 10, msg)
+    print("Stopping Touch!")
+    os.sleep(0.2)
 end
 
 function events()
