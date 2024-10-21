@@ -6,7 +6,7 @@ local event = require("event")
 local gpu
 local curr_color = 0x0000FF
 local current_screen = nil
-
+local hide = false
 
 local guis = {
     ["gui_click"] = {
@@ -15,10 +15,12 @@ local guis = {
         ["fg_color"] = 0x0000FF,
         text = {
             ["Title"] = {
+                ["TextColor"] = 0xFFFFFF
                 ["Text"] = "Hello, World!",
                 ["PosX"] = 10,
                 ["PosY"] = 10,
             },
+        ["hide"] = false
     
         },
     },
@@ -56,6 +58,7 @@ function cls()
         gpu.setForeground(guis[current_screen]["fg_color"])
         gpu.fill(1, 1, w, h, guis[current_screen]["fill"])
         for key, text in pairs(guis[current_screen]["text"]) do
+            gpu.setForeground(text["TextColor"])
             gpu.set(text["PosX"], text["PosY"], text["Text"])
         end
     end
@@ -79,8 +82,10 @@ end
 function render()
     while true do
         cls()
-        get_date()
-        door_os_name()
+        if hide == false then       
+            get_date()
+            door_os_name()
+        end
         coroutine.yield()
     end
 end
@@ -92,7 +97,10 @@ function touch_ev()
         local msg = "."
         set_text(xx, yy, msg)
         if xx < 10 and xx > 1 and yy < 5 and yy > 1 then
-            current_screen = "gui_click"
+            if not current_screen then
+                current_screen = "gui_click"
+            else 
+                current_screen = nil
             cls() 
         end
 
