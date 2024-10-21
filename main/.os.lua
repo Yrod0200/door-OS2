@@ -4,6 +4,8 @@ local c = require("computer")
 local event = require("event")
 
 local gpu
+local x 
+local y
 
 function set_text(x, y, text)
     gpu.setForeground(0xFFFFFF)
@@ -32,6 +34,7 @@ end
 
 function get_date()
     local uptime = math.floor(c.uptime())
+    local uptime = tostring(uptime) .. " " .. tostring(x) .. " " .. tostring(y)
     gpu.setForeground(0xFFFFFF)
     gpu.set(5 , 2, uptime)
 end
@@ -52,10 +55,10 @@ end
 
 function event_touch()
     while true do
-        local evname, _, x, y = event.pull(0.1)
+        local evname, _, xx, yy = event.pull(0.1)
         if evname == "touch" then
-            local msg = "TOUCHED: " .. tostring(x) .. ", " .. tostring(y)
-            set_text(0, 10, msg)
+            x = xx
+            y = yy
         end
             coroutine.yield()
     end
@@ -68,9 +71,6 @@ function events()
         coroutine.yield()
     end
 end
-
-
-
 
 function main()
     local render_t = coroutine.create(render)
