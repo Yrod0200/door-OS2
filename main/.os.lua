@@ -38,7 +38,7 @@ function main()
     local success, gpu = have_gpu()
     if success then
       os.sleep(0.01)
-      coroutine.resume(cls_t
+      coroutine.resume(cls_t)
       os.sleep(0.01)
       coroutine.resume(hello_t)
     else
