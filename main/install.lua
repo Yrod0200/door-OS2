@@ -23,10 +23,11 @@ function install()
   filesystem.makeDirectory("/usr/dos2")
   filesystem.makeDirectory("/usr/dos2/passwd")
   passwd = io.open("/usr/do2/passwd/default.txt", "w")
-  passwd:write("123")
-  passwd:close()
-  print("Installed!")
-  shell.execute("reboot")
+  if passwd then
+    passwd:write("123")
+    passwd:close()
+  else
+    print("AVAAAAAAAAAAAAAAAAAAAAAA")
 end
 
 
