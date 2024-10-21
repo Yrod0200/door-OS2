@@ -26,15 +26,17 @@ function install()
   
   filesystem.makeDirectory("/usr/dos2")
   filesystem.makeDirectory("/usr/dos2/passwd")
-  set_text(0, 10, "Select an password. (Is not encrypted.)")
+  gpu.fill(1, 1, w, h, " ")
+  gpu.setBackground(0x000000)
+  set_text(0, 11, "Select an password. (Is not encrypted.)")
   password = io.read()
   passwd = io.open("/usr/dos2/passwd/.default.txt", "w")
   if passwd then
     passwd:write(password)
     passwd:close()
     cls()
-    set_text(0, 15, "Your system was installed sucessfully!")
-    set_text(0, 16, "You can now reboot to the new OS.")
+    set_text(1, 10, "Your system was installed sucessfully!")
+    set_text(1, 10, "You can now reboot to the new OS.")
   end
 end
 
