@@ -51,21 +51,17 @@ function render()
     end
 end
 
-
+function touch_ev()
+    local evname, _, xx, yy = event.pull(0.5)
+    if xx and yy then
+        local msg = "TOUCHED: " .. tostring(xx) .. ", " .. tostring(yy)
+        set_text(10, 10, msg)
+        os.sleep(1)
+    end
+end
 function events()
     while true do
-        print("Started events...")
-        local evname, _, xx, yy = event.pull(0.5)
-        os.sleep(3)
-        print("TOUCHED!")
-        os.sleep(3)
-            if xx and yy then
-                local msg = "TOUCHED: " .. tostring(xx) .. ", " .. tostring(yy)
-                set_text(10, 10, msg)
-                os.sleep(5)
-            end
-        print("Stopped events...")
-        os.sleep(5)
+        touch_ev()
         coroutine.yield()
     end
 end
