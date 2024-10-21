@@ -20,14 +20,21 @@ function install()
   shell.execute("copy /tmp/.door.lua /home/.door.lua")
   shell.execute("copy /tmp/.gautorun.lua /boot/95_door.lua")
   shell.execute("copy /tmp/.os.lua /home/.os.lua")
+  shell.execute("rm /tmp/.os.lua")
+  shell.execute("rm /tmp/.gautorun.lua")
+  shell.execute("rm /tmp/.door.lua")
+  
   filesystem.makeDirectory("/usr/dos2")
   filesystem.makeDirectory("/usr/dos2/passwd")
-  passwd = io.open("/usr/do2/passwd/default.txt", "w")
+  set_text(0, 10, "Select password...")
+  password = io.read()
+  passwd = io.open("/usr/dos2/passwd/default.txt", "w")
   if passwd then
-    passwd:write("123")
+    passwd:write(password)
     passwd:close()
-  else
-    print("AVAAAAAAAAAAAAAAAAAAAAAA")
+    cls()
+    set_text(0, 15, "Your system was installed sucessfully.")
+  end
 end
 
 
