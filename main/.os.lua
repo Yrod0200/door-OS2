@@ -26,8 +26,8 @@ function cls()
 end
 
 function get_date()
-    local uptime = c.uptime()
-    local free_mem = "  FREE RAM: " .. tostring(math.floor(c.freeMemory()) / 1024 ) .. "Mb"
+    local uptime = math.floor(c.uptime())
+    local free_mem = "  FREE RAM: " .. tostring(math.floor(c.freeMemory())) .. "Kb"
     local msg = uptime .. free_mem
     gpu.setForeground(0xFFFFFF)
     gpu.set(2 , 6, msg)
