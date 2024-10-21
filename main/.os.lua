@@ -54,14 +54,15 @@ end
 
 function events()
     while true do
+        print("Started events...")
         local evname, _, xx, yy = event.pull()
-        if evname == "touch" then
-            print("TOUCHED!")
+        print("TOUCHED!")
             if xx and yy then
                 local msg = "TOUCHED: " .. tostring(xx) .. ", " .. tostring(yy)
                 set_text(10, 10, msg)
             end
         end
+        print("Stopped events...")
         coroutine.yield()
     end
 end
