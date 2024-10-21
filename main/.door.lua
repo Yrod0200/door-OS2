@@ -13,12 +13,10 @@ if cp.isAvailable("gpu") then
   w, h = gpu.getResolution()
   gpu.setBackground(0x0000FF, false)
   gpu.fill(1, 1, w, h, " ")
-  c.beep(750, 300) 
   gpu.setForeground(0xFFFFFF, false)  
   ww, hh = gpu.getViewport()
-  gpu.set(20, 5, "D-OS/2")
+  gpu.set(18, 5, "D-OS/2")
   gpu.set(2, 6, "Ctrl + Alt + C to get into the Terminal.")
-  c.beep(750, 300) 
   gpu.set(19,15, "LOGIN: ")
   
   function read()
@@ -38,11 +36,9 @@ if cp.isAvailable("gpu") then
      
   chunk =  read()
   if chunk == "123" then
-    c.beep(750, 300) 
     shell.execute("lua /home/.os.lua")
   else
     gpu.set(19, 17, "Incorrect!")
-    c.beep(300, 300) 
     goto login
   end
 end
