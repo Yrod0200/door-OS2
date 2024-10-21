@@ -68,7 +68,6 @@ local event_t = coroutine.create(events)
 
 function main()
     while true do
-        coroutine.resume(event_t)
         coroutine.resume(render_t)
         os.sleep(0.01)
     end
