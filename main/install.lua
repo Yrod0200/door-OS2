@@ -56,10 +56,9 @@ if ( read == "Y" or read == "y" ) then
   local dir = io.read()
   dir = "/" .. dir .. "/"
   install(dir)
-  
 else
   os.exit(-1) 
-
+end
 
 
 
