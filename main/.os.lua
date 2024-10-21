@@ -30,7 +30,7 @@ function get_date()
     local free_mem = "  FREE RAM: " .. tostring(c.freeMemory())
     local msg = uptime .. free_mem
     gpu.setForeground(0xFFFFFF)
-    gpu.set(w / 2 - #msg / 2, 5, msg)
+    gpu.set(w / 2 - #msg , 5, msg)
 end
 
 function door_os_name()
@@ -47,18 +47,15 @@ function render()
     end
 end
 
-function get_device_added()
-    local _, device, type = event.pull("component_added")
-    gpu.setForeground(0xFFFFFF)
-    local msg = "Device " .. type .. " connected."
-    c.beep(750, 300)
-    gpu.set(w / 2 - #msg / 2, 2, msg)
-    coroutine.yield()
-end
-
 function events()
     while true do
-        get_device_added()
+        local event_type, arg1, arg2, arg3, arg4 = computer.pullSignal(0.1)
+        
+        if event_type = "component_added" then
+            gpu.setForeground(0xFFFFFF)
+            local msg = "Device " .. type .. " connected."
+            gpu.set(w / 2 - #msg, 17, msg)
+        
         coroutine.yield()
     end
 end
@@ -68,6 +65,7 @@ local event_t = coroutine.create(events)
 
 function main()
     while true do
+        coroutine.resume(event_t)
         coroutine.resume(render_t)
         os.sleep(0.01)
     end
