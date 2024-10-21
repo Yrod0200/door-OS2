@@ -4,6 +4,28 @@ local c = require("computer")
 local event = require("event")
 
 local gpu
+local curr_color = 0x0000FF
+local current_screen = nil
+
+
+local guis = {
+    ["gui_click"] = {
+        ["fill"] = " "
+        ["bg_color"] = 0x00FF00
+        ["fg_color"] = 0x0000FF
+        text = {
+            ["Title"] = {
+                ["Text"] = "Hello, World!"
+                ["PosX"] = 10
+                ["PosY"] = 10
+            }
+    
+        }
+    }
+}
+
+
+
 
 function set_text(x, y, text)
     gpu.setForeground(0xFFFFFF)
@@ -26,8 +48,17 @@ end
 local w, h = gpu.getResolution()
 
 function cls()
-    gpu.setBackground(0x0000FF)
-    gpu.fill(1, 1, w, h, " ")
+    if not current_screen then
+        gpu.setBackground(0x0000FF)
+        gpu.fill(1, 1, w, h, " ")
+    elseif guis[current_screen] then
+        gpu.setBackground(guis[gui_click]["bg_color"])
+        gpu.setForeground(guis[gui_click]["fg_color"])
+        gpu.fill(1, 1, w, h, guis[gui_click]["fill"])
+        for key, text in pairs(guis[gui_click]["text"]) do
+            gpu.set(text["PosX"], text["PosY"], text["Text"])
+        end
+    end
 end
 
 function get_date()
@@ -37,6 +68,9 @@ function get_date()
     gpu.set(15 , 3, msg)
 end
 
+function mouse()
+
+end
 function door_os_name()
     gpu.setForeground(0xFFFFFF)
     gpu.set(2 , 2, "(D-OS/2 v1.0-alpha)")
@@ -55,9 +89,13 @@ end
 function touch_ev()
     local evname, _, xx, yy = event.pull(0.5)
     if xx and yy then
-        local msg = "TOUCHED: " .. tostring(xx) .. ", " .. tostring(yy)
-        set_text(10, 10, msg)
-        os.sleep(1)
+        local msg = "."
+        set_text(xx, yy, msg)
+        if xx == < 5 and xx > 1 and yy < 3 and yy > 1 then
+            current_screen = "gui_click"
+        end
+
+        os.sleep(0.01)
     end
 end
 function events()
