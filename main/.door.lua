@@ -37,8 +37,8 @@ if cp.isAvailable("gpu") then
      
   chunk =  read()
   file = io.open("/usr/dos2/passwd/default.txt", "r")
-  passwd = file.read()
-  file.close()
+  passwd = file:read()
+  file:close()
   if chunk == passwd then
     shell.execute("lua /home/.os.lua")
   else
