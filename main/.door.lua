@@ -6,6 +6,8 @@ if cp.isAvailable("gpu") then
   print("Starting...")
   
   gpu = cp.gpu
+
+  c.beep(750, 300)
   
   gpu.setViewport(50, 25)
 
@@ -36,11 +38,11 @@ if cp.isAvailable("gpu") then
      
   chunk =  read()
   if chunk == "123" then
-    os.sleep(2)
+    c.beep(750, 2000)
     shell.execute("lua /home/.os.lua")
-    os.sleep(3)
   else
     gpu.set(19, 17, "Incorrect!")
+    c.beep(300, 2000)
     goto login
   end
 end
