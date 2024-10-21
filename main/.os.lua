@@ -65,22 +65,15 @@ function events()
     end
 end
 
-function main_app()
+
+local render_t = coroutine.create(render)
+local event_t = coroutine.create(events)
+
+function main()
     while true do
         coroutine.resume(event_t)
         coroutine.resume(render_t)
         os.sleep(0.01)
-        coroutine.yield()
-    end
-end
-
-local render_t = coroutine.create(render)
-local event_t = coroutine.create(events)
-local main_t = coroutine.create(main_app)
-
-function main()
-    while true do
-        coroutine.resume(main_t)
     end
 end
 
