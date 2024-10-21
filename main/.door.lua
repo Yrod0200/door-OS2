@@ -14,7 +14,8 @@ if cp.isAvailable("gpu") then
   gpu.fill(1, 1, w, h, " ")
   gpu.setForeground(0xFFFFFF, false)  
   ww, hh = gpu.getViewport()
-  gpu.set(20, 5, "DOOR SYSTEM")
+  gpu.set(20, 5, "D-OS/2")
+  gpu.set(20, 5, "Ctrl + Alt + C to get into the actual OpenOS Terminal.")
   os.sleep(3)  
   gpu.set(19,15, "LOGIN: ")
   
