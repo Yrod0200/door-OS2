@@ -27,15 +27,15 @@ end
 
 function get_date()
     local uptime = c.uptime()
-    local free_mem = "  FREE RAM: " .. tostring(c.freeMemory())
+    local free_mem = "  FREE RAM: " .. tostring(math.floor(c.freeMemory()) / 1024 ) .. "Mb"
     local msg = uptime .. free_mem
     gpu.setForeground(0xFFFFFF)
-    gpu.set(w / 2 - #msg , 5, msg)
+    gpu.set(w / 2, 2, msg)
 end
 
 function door_os_name()
     gpu.setForeground(0xFFFFFF)
-    gpu.set(w - 7, h - 2, "D-OS/2")
+    gpu.set(2 , 2, "(D-OS/2 v1.0-alpha)")
 end
 
 function render()
