@@ -30,6 +30,7 @@ end
 
 function cls()
   gpu.setBackground(0x0000FF)
+  w, h = gpu.getResolution()
   gpu.fill(1, 1, w, h, " ")
 end
 function set_text(text, x, y)
