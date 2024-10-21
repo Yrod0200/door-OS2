@@ -51,21 +51,17 @@ function render()
     end
 end
 
-function event_touch()
-    local evname, _, xx, yy = event.pull(0.01)
-    print("Evento recebido:", evname)
-    if evname then
-        print("TOUCHED!")
-    end
-    if xx and yy then
-        local msg = "TOUCHED: " .. tostring(xx) .. ", " .. tostring(yy)
-        set_text(10, 10, msg)
-    end
-end
 
 function events()
     while true do
-        event_touch()
+        local evname, _, xx, yy = event.pull(0.1)
+        if evname == "touch" then
+            print("TOUCHED!")
+            if xx and yy then
+                local msg = "TOUCHED: " .. tostring(xx) .. ", " .. tostring(yy)
+                set_text(10, 10, msg)
+            end
+        end
         coroutine.yield()
     end
 end
