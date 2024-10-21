@@ -8,7 +8,7 @@ if cp.isAvailable("gpu") then
   gpu = cp.gpu
 
   
-  gpu.setViewport(50, 25)
+  gpu.setViewport(75, 50)
 
   w, h = gpu.getResolution()
   gpu.setBackground(0x0000FF, false)
