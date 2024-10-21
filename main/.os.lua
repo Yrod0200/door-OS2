@@ -51,7 +51,7 @@ function render()
 end
 
 function event_touch()
-    local evname, _, x, y = event.pull(0.1, "touch")
+    local evname, _, x, y = event.pull(0.01)
     if evname == "touch" then
         local msg = "TOUCHED: " .. tostring(x) .. ", " .. tostring(y)
         set_text(0, 10, msg)
