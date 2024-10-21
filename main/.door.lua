@@ -18,7 +18,7 @@ if cp.isAvailable("gpu") then
   ww, hh = gpu.getViewport()
   gpu.set(20, 5, "D-OS/2")
   gpu.set(2, 6, "Ctrl + Alt + C to get into the Terminal.")
-  os.sleep(3)  
+  c.beep(750, 3000) 
   gpu.set(19,15, "LOGIN: ")
   
   function read()
