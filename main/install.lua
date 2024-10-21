@@ -42,7 +42,7 @@ gpu.setViewport(50, 25)
 
 cls()
 set_text(10, 5, "Welcome to D-OS/2 installer!")
-set_text(12, 7, "Would you like to install D-OS/2 on some OPEN-OS HD? [Y/n]")
+set_text(2, 7, "Would you like to install D-OS/2 on some OPEN-OS HD? [Y/n]")
 
 read = io.read()
 if ( read == "Y" or read == "y" ) then
