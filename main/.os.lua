@@ -10,18 +10,18 @@ local current_screen = nil
 
 local guis = {
     ["gui_click"] = {
-        ["fill"] = " "
-        ["bg_color"] = 0x00FF00
-        ["fg_color"] = 0x0000FF
+        ["fill"] = " ",
+        ["bg_color"] = 0x00FF00,
+        ["fg_color"] = 0x0000FF,
         text = {
             ["Title"] = {
-                ["Text"] = "Hello, World!"
-                ["PosX"] = 10
-                ["PosY"] = 10
-            }
+                ["Text"] = "Hello, World!",
+                ["PosX"] = 10,
+                ["PosY"] = 10,
+            },
     
-        }
-    }
+        },
+    },
 }
 
 
