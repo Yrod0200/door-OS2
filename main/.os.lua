@@ -55,9 +55,7 @@ function event_touch()
     if evname == "touch" then
         local msg = "TOUCHED: " .. tostring(x) .. ", " .. tostring(y)
         set_text(0, 10, msg)
-    else 
-        coroutine.yield()
-    end
+    coroutine.yield()
 end
 
 function events()
