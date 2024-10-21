@@ -31,9 +31,10 @@ function cls()
 end
 
 function get_date()
-    local uptime = tostring(math.floor(c.uptime()))
+    local uptime = math.floor(c.uptime())
+    local msg = tostring(msg)
     gpu.setForeground(0xFFFFFF)
-    gpu.set(5 , 2, uptime)
+    gpu.set(15 , 3, msg)
 end
 
 function door_os_name()
@@ -44,7 +45,6 @@ end
 function render()
     while true do
         cls()
-        print("Rendering...")
         get_date()
         door_os_name()
         coroutine.yield()
@@ -52,12 +52,11 @@ function render()
 end
 
 function event_touch()
-    print("Starting Touch!")
     local evname, _, x, y = event.pull(0.1, "touch")
-    local msg = "TOUCHED: " .. tostring(x) .. ", " .. tostring(y)
+    if x and y then
+        local msg = "TOUCHED: " .. tostring(x) .. ", " .. tostring(y)
+    end
     set_text(0, 10, msg)
-    print("Stopping Touch!")
-    os.sleep(0.2)
 end
 
 function events()
