@@ -55,7 +55,7 @@ function event_touch()
     local evname, _, x, y = event.pull(0.1, "touch")
     if x and y then
         local msg = "TOUCHED: " .. tostring(x) .. ", " .. tostring(y)
-        set_text(0, 10, msg)
+        set_text(1, 10, msg)
     end
 end
 
