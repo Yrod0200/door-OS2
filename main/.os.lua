@@ -61,7 +61,6 @@ function events()
                 local msg = "TOUCHED: " .. tostring(xx) .. ", " .. tostring(yy)
                 set_text(10, 10, msg)
             end
-        end
         print("Stopped events...")
         coroutine.yield()
     end
