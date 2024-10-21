@@ -35,8 +35,9 @@ if cp.isAvailable("gpu") then
      
   chunk =  read()
   if chunk == "123" then
+    os.sleep(2)
+    shell.execute("lua /home/.os.lua")
     os.sleep(3)
-    shell.execute("/home/.os.lua")
   else
     gpu.set(19, 17, "Incorrect!")
     goto login
