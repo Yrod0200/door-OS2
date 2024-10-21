@@ -62,6 +62,7 @@ function events()
                 set_text(10, 10, msg)
             end
         print("Stopped events...")
+        os.sleep(5)
         coroutine.yield()
     end
 end
