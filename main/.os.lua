@@ -52,7 +52,8 @@ function render()
 end
 
 function event_touch()
-    local evname, _, xx, yy = event.pull(0.01, "touch")
+    local evname, _, xx, yy = event.pull(0.01)
+    print("Evento recebido:", evname)
     if evname then
         print("TOUCHED!")
     end
