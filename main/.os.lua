@@ -55,7 +55,7 @@ end
 function events()
     while true do
         print("Started events...")
-        local evname, _, xx, yy = event.pull()
+        local evname, _, xx, yy = event.pull(0.5)
         print("TOUCHED!")
             if xx and yy then
                 local msg = "TOUCHED: " .. tostring(xx) .. ", " .. tostring(yy)
