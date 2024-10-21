@@ -51,11 +51,11 @@ function render()
 end
 
 function event_touch()
-        _, x, y = event.pull(0.1, "touch")
-        if x and y then
-            msg = "TOUCHED: " .. tostring(x) .. ", " .. tostring(y)
-            set_text(0, 10, msg)
-        end
+    _, x, y = event.pull(0.1, "touch")
+    if x and y then
+        msg = "TOUCHED: " .. tostring(x) .. ", " .. tostring(y)
+        set_text(0, 10, msg)
+    end
 end
 
 function events()
@@ -63,7 +63,6 @@ function events()
         event_touch()
         coroutine.yield()
     end
-
 end
 
 local render_t = coroutine.create(render)
