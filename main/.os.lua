@@ -52,10 +52,10 @@ function cls()
         gpu.setBackground(0x0000FF)
         gpu.fill(1, 1, w, h, " ")
     elseif guis[current_screen] then
-        gpu.setBackground(guis[gui_click]["bg_color"])
-        gpu.setForeground(guis[gui_click]["fg_color"])
-        gpu.fill(1, 1, w, h, guis[gui_click]["fill"])
-        for key, text in pairs(guis[gui_click]["text"]) do
+        gpu.setBackground(guis[current_screen]["bg_color"])
+        gpu.setForeground(guis[current_screen]["fg_color"])
+        gpu.fill(1, 1, w, h, guis[current_screen]["fill"])
+        for key, text in pairs(guis[gcurrent_screen]["text"]) do
             gpu.set(text["PosX"], text["PosY"], text["Text"])
         end
     end
@@ -91,8 +91,9 @@ function touch_ev()
     if xx and yy then
         local msg = "."
         set_text(xx, yy, msg)
-        if xx == < 5 and xx > 1 and yy < 3 and yy > 1 then
+        if xx < 5 and xx > 1 and yy < 3 and yy > 1 then
             current_screen = "gui_click"
+            cls() 
         end
 
         os.sleep(0.01)
