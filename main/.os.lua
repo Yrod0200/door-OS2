@@ -57,7 +57,7 @@ function event_touch()
         print("TOUCHED!")
     end
     if xx and yy then
-        local msg = "TOUCHED: " .. tostring(x) .. ", " .. tostring(y)
+        local msg = "TOUCHED: " .. tostring(xx) .. ", " .. tostring(yy)
         set_text(10, 10, msg)
     end
 end
