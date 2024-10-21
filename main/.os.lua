@@ -102,6 +102,7 @@ function touch_ev()
             else 
                 current_screen = nil
             cls() 
+            end
         end
 
         os.sleep(0.01)
