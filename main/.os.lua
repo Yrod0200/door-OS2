@@ -2,6 +2,10 @@ local fs = require("filesystem")
 local cp = require("component")
 local c = require("computer")
 local e = require("event")
+w, h = gpu.getResolution()
+
+
+
 function have_gpu()
   if cp.isAvailable("gpu") then
     return true, cp.gpu
