@@ -1,6 +1,6 @@
 cp = require("component")
 c = require("computer")
-
+shell = require("shell")
 ::login::
 if cp.isAvailable("gpu") then
   print("Starting...")
