@@ -31,7 +31,7 @@ function cls()
 end
 
 function get_date()
-    local uptime = math.floor(c.uptime())
+    local uptime = tostring(math.floor(c.uptime()))
     gpu.setForeground(0xFFFFFF)
     gpu.set(5 , 2, uptime)
 end
