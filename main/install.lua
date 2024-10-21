@@ -35,7 +35,7 @@ function cls()
 end
 function set_text(x, y, text)
   gpu.setForeground(0xFFFFFF)
-  gpu.set(x , y, text)
+  gpu.set(x - 5 , y, text)
 end
 
 gpu.setViewport(50, 25)
