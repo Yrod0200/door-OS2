@@ -50,6 +50,7 @@ function render()
         coroutine.yield()
     end
 end
+--fuck yall github workers
 
 function touch_ev()
     local evname, _, xx, yy = event.pull(0.5)
