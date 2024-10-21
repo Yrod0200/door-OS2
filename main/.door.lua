@@ -1,6 +1,7 @@
 cp = require("component")
 c = require("computer")
 shell = require("shell")
+fs = require("filesystem")
 ::login::
 if cp.isAvailable("gpu") then
   print("Starting...")
@@ -35,7 +36,7 @@ if cp.isAvailable("gpu") then
    end
      
   chunk =  read()
-  file = io.open("/usr/do2/passwd/default.txt", "r")
+  file = fs.open("/usr/do2/passwd/default.txt", "r")
   passwd = file.read()
   file.close()
   if chunk == passwd then
