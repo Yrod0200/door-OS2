@@ -51,12 +51,10 @@ function render()
 end
 
 function event_touch()
-    while true do
-        local evname, _, x, y = event.pull(0.1)
-        if evname == "touch" then
-            local msg = "TOUCHED: " .. tostring(x) .. ", " .. tostring(y)
-            set_text(0, 10, msg)
-        end
+    local evname, _, x, y = event.pull(0.1)
+    if evname == "touch" then
+        local msg = "TOUCHED: " .. tostring(x) .. ", " .. tostring(y)
+        set_text(0, 10, msg)
     end
 end
 
@@ -68,8 +66,8 @@ function events()
 end
 
 function main()
-    local render_t = coroutine.create(render)
     local event_t = coroutine.create(events)
+    local render_t = coroutine.create(render)
     while true do
         coroutine.resume(event_t)
         coroutine.resume(render_t)
