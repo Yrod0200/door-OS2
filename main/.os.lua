@@ -33,7 +33,7 @@ end
 function get_date()
     local uptime = math.floor(c.uptime())
     gpu.setForeground(0xFFFFFF)
-    gpu.set(5 , 2, msg)
+    gpu.set(5 , 2, uptime)
 end
 
 function door_os_name()
@@ -53,7 +53,7 @@ end
 function event_touch()
     local evname, _, x, y = event.pull(0.1, "touch")
     if evname == "touch" then
-        msg = "TOUCHED: " .. tostring(x) .. ", " .. tostring(y)
+        local msg = "TOUCHED: " .. tostring(x) .. ", " .. tostring(y)
         set_text(0, 10, msg)
     end
 end
