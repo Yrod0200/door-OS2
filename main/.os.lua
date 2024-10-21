@@ -55,6 +55,7 @@ function event_touch()
         if x and y then
             msg = "TOUCHED: " .. tostring(x) .. ", " .. tostring(y)
             set_text(0, 10, msg)
+        end
 end
 
 function events()
