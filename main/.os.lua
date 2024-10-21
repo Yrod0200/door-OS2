@@ -20,9 +20,8 @@ local guis = {
                 ["PosX"] = 10,
                 ["PosY"] = 10,
             },
-        ["hide"] = false
-    
         },
+        ["hide"] = false,
     },
 }
 
