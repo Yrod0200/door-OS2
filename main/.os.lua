@@ -4,8 +4,6 @@ local c = require("computer")
 local event = require("event")
 
 local gpu
-local x 
-local y
 
 function set_text(x, y, text)
     gpu.setForeground(0xFFFFFF)
